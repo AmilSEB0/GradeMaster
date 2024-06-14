@@ -1,0 +1,19 @@
+import { Controller, Get } from "@nestjs/common";
+import { AppService } from "./app.service";
+
+@Controller()
+export class AppController {
+  // eslint-disable-next-line no-unused-vars
+  constructor(private readonly appService: AppService) {}
+
+  @Get()
+  getHello(): string {
+    return this.appService.getHello();
+  }
+
+  @Get("execute-sql")
+  async executeSQL(): Promise<any> {
+    const result = await this.appService.executeSQLFromFile();
+    return result;
+  }
+}

@@ -1,0 +1,41 @@
+version: '3.2'
+
+services:
+
+   grade-db:
+      image: mysql:8.0
+      container_name: grade-db
+      volumes:
+        - ./BDD/data:/var/lib/mysql:z
+      environment:
+        MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD} 
+        MYSQL_DATABASE: ${MYSQL_DATABASE}
+   grade-admin:
+      depends_on:
+       - grade-db
+      image: phpmyadmin/phpmyadmin
+      container_name: grade-admin
+      ports:
+       - ${PORT_PHP_MY_ADMIN}:${EXPOSE_PHP_MY_ADMIN}
+      environment:
+        PMA_HOST: ${PMA_HOST}
+
+  #  grade-node:
+  #    container_name: grade-node
+  #    build:
+  #      context: back
+  #      dockerfile: Dockerfile
+  #    ports:
+  #      - ${PORT_API}:${EXPOSE_API}
+  #    depends_on:
+  #      - grade-db
+
+   grade-ionic:
+     container_name: grade-ionic
+     build:
+       context: front_GradeMaster
+       dockerfile: Dockerfile
+     ports:
+       -  ${PORT_FRONT}:${EXPOSE_FRONT}
+    #  depends_on:
+    #    - grade-node

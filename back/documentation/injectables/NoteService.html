@@ -1,0 +1,1540 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>back documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+    </head>
+    <body>
+          <script>
+               // Blocking script to avaoid flickering dark mode
+               // Dark mode toggle button
+               var useDark = window.matchMedia('(prefers-color-scheme: dark)');
+               var darkModeState = useDark.matches;
+               var $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               var $darkModeToggles = document.querySelectorAll('.dark-mode-switch');
+               var darkModeStateLocal = localStorage.getItem('compodoc_darkmode-state');
+
+               function checkToggle(check) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].checked = check;
+                    }
+               }
+
+               function toggleDarkMode(state) {
+                    if (window.localStorage) {
+                         localStorage.setItem('compodoc_darkmode-state', state);
+                    }
+
+                    checkToggle(state);
+
+                    const hasClass = document.body.classList.contains('dark');
+
+                    if (state) {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.add('dark');
+                         }
+                         if (!hasClass) {
+                              document.body.classList.add('dark');
+                         }
+                    } else {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.remove('dark');
+                         }
+                         if (hasClass) {
+                              document.body.classList.remove('dark');
+                         }
+                    }
+               }
+
+               useDark.addEventListener('change', function (evt) {
+                    toggleDarkMode(evt.matches);
+               });
+               if (darkModeStateLocal) {
+                    darkModeState = darkModeStateLocal === 'true';
+               }
+               toggleDarkMode(darkModeState);
+
+               if ($darkModeToggles.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
+        <div class="navbar navbar-default navbar-fixed-top d-block d-sm-none">
+            <a href="../" class="navbar-brand">back documentation</a>
+            <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="hidden-xs menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content injectable">
+                   <div class="content-data">
+
+
+
+
+
+
+
+
+<ol class="breadcrumb">
+  <li class="breadcrumb-item">Injectables</li>
+  <li class="breadcrumb-item" >NoteService</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="nav-item">
+            <a href="#info" 
+                class="nav-link"
+                class="nav-link active"
+                role="tab" id="info-tab" data-bs-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li class="nav-item">
+            <a href="#source" 
+                class="nav-link"
+                
+                role="tab" id="source-tab" data-bs-toggle="tab" data-link="source">Source</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="info">
+        <p class="comment">
+            <h3>File</h3>
+        </p>
+        <p class="comment">
+            <code>src/note/note.service.ts</code>
+        </p>
+
+
+
+
+
+            <section data-compodoc="block-index">
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#calculateMoyenne" >calculateMoyenne</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Async</span>
+                                <a href="#calculerMoyenneClasseEleveByProfesseur" >calculerMoyenneClasseEleveByProfesseur</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Async</span>
+                                <a href="#create" >create</a>
+                            </li>
+                            <li>
+                                <a href="#findAll" >findAll</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Async</span>
+                                <a href="#findOne" >findOne</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Async</span>
+                                <a href="#getMoyennesByEleve" >getMoyennesByEleve</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Async</span>
+                                <a href="#getMoyennesByProfesseur" >getMoyennesByProfesseur</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Async</span>
+                                <a href="#getNotesByEleveAndMatiere" >getNotesByEleveAndMatiere</a>
+                            </li>
+                            <li>
+                                <a href="#remove" >remove</a>
+                            </li>
+                            <li>
+                                <a href="#update" >update</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+            <section data-compodoc="block-constructor">
+    <h3 id="constructor">Constructor</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+<code>constructor(noteRepository: <a href="../entitys/Note.html" target="_self">Repository&lt;Note&gt;</a>, matiereRepository: <a href="../entitys/Matiere.html" target="_self">Repository&lt;Matiere&gt;</a>, professeurRepository: <a href="../entitys/Professeur.html" target="_self">Repository&lt;Professeur&gt;</a>, classeRepository: <a href="../entitys/Classe.html" target="_self">Repository&lt;Classe&gt;</a>, eleveRepository: <a href="../entitys/Eleve.html" target="_self">Repository&lt;Eleve&gt;</a>, eleveService: <a href="../injectables/EleveService.html" target="_self">EleveService</a>, professeurService: <a href="../injectables/ProfesseurService.html" target="_self">ProfesseurService</a>)</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="23" class="link-to-prism">src/note/note.service.ts:23</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                            <div>
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>noteRepository</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../entitys/Note.html" target="_self" >Repository&lt;Note&gt;</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>matiereRepository</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../entitys/Matiere.html" target="_self" >Repository&lt;Matiere&gt;</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>professeurRepository</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../entitys/Professeur.html" target="_self" >Repository&lt;Professeur&gt;</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>classeRepository</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../entitys/Classe.html" target="_self" >Repository&lt;Classe&gt;</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>eleveRepository</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../entitys/Eleve.html" target="_self" >Repository&lt;Eleve&gt;</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>eleveService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/EleveService.html" target="_self" >EleveService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>professeurService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/ProfesseurService.html" target="_self" >ProfesseurService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+            <section data-compodoc="block-methods">
+    
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="calculateMoyenne"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>calculateMoyenne</b></span>
+                        <a href="#calculateMoyenne"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>calculateMoyenne(notes: any[])</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="95"
+                                    class="link-to-prism">src/note/note.service.ts:95</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>notes</td>
+                                            <td>
+                                                        <code>any[]</code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="calculerMoyenneClasseEleveByProfesseur"></a>
+                    <span class="name">
+                            <span class="modifier">Async</span>
+                        <span ><b>calculerMoyenneClasseEleveByProfesseur</b></span>
+                        <a href="#calculerMoyenneClasseEleveByProfesseur"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>calculerMoyenneClasseEleveByProfesseur(classeId: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>, professeurId: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="315"
+                                    class="link-to-prism">src/note/note.service.ts:315</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>classeId</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                        <tr>
+                                                <td>professeurId</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>    <code>Promise&lt;any[]&gt;</code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="create"></a>
+                    <span class="name">
+                            <span class="modifier">Async</span>
+                        <span ><b>create</b></span>
+                        <a href="#create"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>create(createNoteDto: <a href="../classes/CreateNoteDto.html" target="_self">CreateNoteDto</a>, professeurId: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="364"
+                                    class="link-to-prism">src/note/note.service.ts:364</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>createNoteDto</td>
+                                            <td>
+                                                            <code><a href="../classes/CreateNoteDto.html" target="_self" >CreateNoteDto</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                        <tr>
+                                                <td>professeurId</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>    <code>Promise&lt;void&gt;</code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="findAll"></a>
+                    <span class="name">
+                        <span ><b>findAll</b></span>
+                        <a href="#findAll"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>findAll()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="111"
+                                    class="link-to-prism">src/note/note.service.ts:111</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="findOne"></a>
+                    <span class="name">
+                            <span class="modifier">Async</span>
+                        <span ><b>findOne</b></span>
+                        <a href="#findOne"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>findOne(id: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="116"
+                                    class="link-to-prism">src/note/note.service.ts:116</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>id</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="../entitys/Note.html" target="_self" >Promise&lt;Note&gt;</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getMoyennesByEleve"></a>
+                    <span class="name">
+                            <span class="modifier">Async</span>
+                        <span ><b>getMoyennesByEleve</b></span>
+                        <a href="#getMoyennesByEleve"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>getMoyennesByEleve(eleveId: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="122"
+                                    class="link-to-prism">src/note/note.service.ts:122</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>eleveId</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>    <code>Promise&lt;any&gt;</code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getMoyennesByProfesseur"></a>
+                    <span class="name">
+                            <span class="modifier">Async</span>
+                        <span ><b>getMoyennesByProfesseur</b></span>
+                        <a href="#getMoyennesByProfesseur"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>getMoyennesByProfesseur(professeurId: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="234"
+                                    class="link-to-prism">src/note/note.service.ts:234</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>professeurId</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>    <code>Promise&lt;any[]&gt;</code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getNotesByEleveAndMatiere"></a>
+                    <span class="name">
+                            <span class="modifier">Async</span>
+                        <span ><b>getNotesByEleveAndMatiere</b></span>
+                        <a href="#getNotesByEleveAndMatiere"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>getNotesByEleveAndMatiere(eleveId: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, matiereId: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="39"
+                                    class="link-to-prism">src/note/note.service.ts:39</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>eleveId</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                        <tr>
+                                                <td>matiereId</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>    <code>Promise&lt;any&gt;</code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="remove"></a>
+                    <span class="name">
+                        <span ><b>remove</b></span>
+                        <a href="#remove"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>remove(id: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="438"
+                                    class="link-to-prism">src/note/note.service.ts:438</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>id</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="update"></a>
+                    <span class="name">
+                        <span ><b>update</b></span>
+                        <a href="#update"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>update(id: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>, updateNoteDto: <a href="../classes/UpdateNoteDto.html" target="_self">UpdateNoteDto</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="434"
+                                    class="link-to-prism">src/note/note.service.ts:434</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>id</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                        <tr>
+                                                <td>updateNoteDto</td>
+                                            <td>
+                                                            <code><a href="../classes/UpdateNoteDto.html" target="_self" >UpdateNoteDto</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+
+    </div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import {
+  BadRequestException,
+  Injectable,
+  NotFoundException,
+} from &quot;@nestjs/common&quot;;
+import { CreateNoteDto } from &quot;./dto/create-note.dto&quot;;
+import { UpdateNoteDto } from &quot;./dto/update-note.dto&quot;;
+import { Note } from &quot;./entities/note.entity&quot;;
+import { InjectRepository } from &quot;@nestjs/typeorm&quot;;
+import { Repository } from &quot;typeorm&quot;;
+import { Matiere } from &quot;src/matiere/entities/matiere.entity&quot;;
+import { Professeur } from &quot;src/professeur/entities/professeur.entity&quot;;
+import { Classe } from &quot;src/classe/entities/classe.entity&quot;;
+import { Eleve } from &quot;src/eleve/entities/eleve.entity&quot;;
+import { EleveService } from &quot;src/eleve/eleve.service&quot;;
+import { ProfesseurService } from &quot;src/professeur/professeur.service&quot;;
+
+@Injectable()
+export class NoteService {
+  constructor(
+    @InjectRepository(Note)
+    private readonly noteRepository: Repository&lt;Note&gt;,
+    @InjectRepository(Matiere)
+    private readonly matiereRepository: Repository&lt;Matiere&gt;,
+    @InjectRepository(Professeur)
+    private readonly professeurRepository: Repository&lt;Professeur&gt;,
+    @InjectRepository(Classe)
+    private readonly classeRepository: Repository&lt;Classe&gt;,
+    @InjectRepository(Eleve)
+    private readonly eleveRepository: Repository&lt;Eleve&gt;,
+    private readonly eleveService: EleveService,
+    private readonly professeurService: ProfesseurService,
+  ) {}
+
+  async getNotesByEleveAndMatiere(
+    eleveId: string,
+    matiereId: number,
+  ): Promise&lt;any&gt; {
+    // Utilisation du QueryBuilder pour récupérer les notes pour un élève et une matière donnés
+    const notes &#x3D; await this.noteRepository
+      .createQueryBuilder(&quot;note&quot;)
+      .leftJoinAndSelect(&quot;note.id_professeur&quot;, &quot;professeur&quot;) // Jointure avec la table des professeurs
+      .leftJoinAndSelect(&quot;professeur.id_matiere&quot;, &quot;matiere&quot;) // Jointure avec la table des matières
+      .leftJoinAndSelect(&quot;note.id_eleve&quot;, &quot;eleve&quot;) // Jointure avec la table des élèves
+      .where(&quot;eleve.id &#x3D; :eleveId&quot;, { eleveId }) // Filtre par l&#x27;ID de l&#x27;élève
+      .andWhere(&quot;matiere.id &#x3D; :matiereId&quot;, { matiereId }) // Filtre par l&#x27;ID de la matière
+      .getMany(); // Récupération des résultats
+
+    // Récupération du nom de la matière
+    const matiere &#x3D; await this.matiereRepository
+      .createQueryBuilder(&quot;matiere&quot;)
+      .select(&quot;matiere.nom&quot;) // Sélectionne le nom de la matière
+      .where(&quot;matiere.id &#x3D; :id&quot;, { id: matiereId }) // Filtre sur l&#x27;ID de la matière
+      .getRawOne(); // Exécute la requête et récupère le résultat
+
+    // Récupération du prenom et le nom du professeur
+    const professeur &#x3D; await this.professeurRepository
+      .createQueryBuilder(&quot;professeur&quot;)
+      .select([&quot;professeur.nom&quot;, &quot;professeur.prenom&quot;]) // Sélectionne le nom et le prénom du professeur
+      .innerJoin(
+        &quot;professeur_classes_classe&quot;,
+        &quot;professeur_classes&quot;,
+        &quot;professeur.id &#x3D; professeur_classes.professeurId&quot;,
+      ) // Jointure avec la table professeur_classes_classe
+      .innerJoin(&quot;matiere&quot;, &quot;matiere&quot;, &quot;professeur.idMatiere &#x3D; matiere.id&quot;) // Jointure avec la table matiere
+      .innerJoin(
+        &quot;eleve&quot;,
+        &quot;eleve&quot;,
+        &quot;eleve.idClasse &#x3D; professeur_classes.classeId&quot;,
+      ) // Jointure avec la table eleve
+      .where(&quot;eleve.id &#x3D; :eleveId&quot;, { eleveId }) // Filtre sur l&#x27;ID de l&#x27;élève
+      .andWhere(&quot;matiere.id &#x3D; :matiereId&quot;, { matiereId }) // Filtre sur l&#x27;ID de la matière
+      .getRawOne(); // Exécute la requête et récupère le résultat
+
+    return {
+      // Retourne les notes et les informations associées
+      notes: notes.map((note) &#x3D;&gt; ({
+        id: note.id,
+        coef: note.coef,
+        note: note.note,
+        nom: note.nom,
+      })),
+      NomMatiere: matiere.matiere_nom,
+      nomProfesseur: professeur.professeur_nom,
+      prenomProfesseur: professeur.professeur_prenom,
+      moyenne: this.calculateMoyenne(notes), // Calcul de la moyenne
+    };
+  }
+
+  // Fonction privée pour calculer la moyenne
+  private calculateMoyenne(notes: any[]): any {
+    let sommeCoefficient &#x3D; 0;
+    let sommeNote &#x3D; 0;
+
+    if (notes.length &gt; 0) {
+      for (const note of notes) {
+        sommeCoefficient +&#x3D; note.coef;
+        sommeNote +&#x3D; note.coef * note.note;
+      }
+
+      return sommeCoefficient !&#x3D;&#x3D; 0 ? sommeNote / sommeCoefficient : 0;
+    } else {
+      return &quot;pas de note&quot;;
+    }
+  }
+
+  findAll() {
+    return this.noteRepository.find();
+    //return &#x60;This action returns all note&#x60;;
+  }
+
+  async findOne(id: number): Promise&lt;Note&gt; {
+    return this.noteRepository.findOne({
+      where: { id },
+    });
+  }
+
+  async getMoyennesByEleve(eleveId: string): Promise&lt;any&gt; {
+    // Récupérer tous les professeurs associés à l&#x27;élève
+    const professeurs &#x3D; await this.professeurRepository
+      .createQueryBuilder(&quot;professeur&quot;)
+      .select([
+        &quot;professeur.id as idProfesseur&quot;,
+        &quot;professeur.prenom as prenomProfesseur&quot;,
+        &quot;professeur.nom as nomProfesseur&quot;,
+      ])
+      .innerJoin(
+        &quot;professeur_classes_classe&quot;,
+        &quot;pcc&quot;,
+        &quot;pcc.professeurId &#x3D; professeur.id&quot;,
+      )
+      .innerJoin(&quot;eleve&quot;, &quot;eleve&quot;, &quot;eleve.idClasse &#x3D; pcc.classeId&quot;)
+      .where(&quot;eleve.id &#x3D; :eleveId&quot;, { eleveId })
+      .getRawMany();
+
+    const moyennesParMatiere &#x3D; [];
+    let sommeCoefTotale &#x3D; 0;
+    let sommePondereeTotale &#x3D; 0;
+    let pasDeNote &#x3D; true; // Indique si l&#x27;élève n&#x27;a pas de notes
+
+    for (const prof of professeurs) {
+      // Récupérer les notes dé l&#x27;élève pour ce professeur
+      const notes &#x3D; await this.noteRepository
+        .createQueryBuilder(&quot;note&quot;)
+        .select([
+          &quot;matiere.id as idMatiere&quot;,
+          &quot;matiere.nom as nomMatiere&quot;,
+          &quot;SUM(note.coef) as sommeCoef&quot;,
+          &quot;SUM(note.coef * note.note) as sommePonderee&quot;,
+          &quot;professeur.id as idProfesseur&quot;,
+          &quot;professeur.prenom as prenomProfesseur&quot;,
+          &quot;professeur.nom as nomProfesseur&quot;,
+        ])
+        .innerJoin(&quot;note.id_professeur&quot;, &quot;professeur&quot;) // Jointure avec la table des professeurs
+        .innerJoin(&quot;professeur.id_matiere&quot;, &quot;matiere&quot;) // Jointure avec la table des matières
+        .where(&quot;note.id_eleve &#x3D; :idEleve&quot;, { idEleve: eleveId }) // Filtre par l&#x27;ID de l&#x27;élève
+        .andWhere(&quot;note.id_professeur &#x3D; :profId&quot;, { profId: prof.idProfesseur })
+        .groupBy(
+          &quot;matiere.nom, professeur.id, professeur.prenom, professeur.nom&quot;,
+        ) // Groupement par matière et professeur
+        .getRawMany(); // Récupération des résultats au format brut
+
+      const matiere &#x3D; await this.professeurRepository
+        .createQueryBuilder(&quot;professeur&quot;)
+        .select([&quot;matiere.id as idMatiere&quot;, &quot;matiere.nom as nomMatiere&quot;])
+        .innerJoin(&quot;professeur.id_matiere&quot;, &quot;matiere&quot;)
+        .where(&quot;professeur.id &#x3D; :professeurId&quot;, {
+          professeurId: prof.idProfesseur,
+        })
+        .getRawOne();
+
+      if (notes.length &gt; 0) {
+        // L&#x27;élève a des notes pour cette matière
+        moyennesParMatiere.push({
+          idMatiere: notes[0].idMatiere,
+          nomMatiere: notes[0].nomMatiere,
+          // eslint-disable-next-line prettier/prettier
+          moyenne:
+            parseFloat(notes[0]?.sommePonderee) /
+            parseFloat(notes[0].sommeCoef),
+          nomProfesseur: prof.nomProfesseur,
+          prenomProfesseur: prof.prenomProfesseur,
+        });
+
+        // Mettre à jour les sommes des coefficients et des pondérations
+        if (!isNaN(parseFloat(notes[0]?.sommeCoef))) {
+          sommeCoefTotale +&#x3D; parseFloat(notes[0]?.sommeCoef);
+        }
+
+        if (!isNaN(parseFloat(notes[0]?.sommePonderee))) {
+          sommePondereeTotale +&#x3D; parseFloat(notes[0]?.sommePonderee);
+        }
+
+        pasDeNote &#x3D; false; // Il y a des notes
+      } else {
+        // L&#x27;élève n&#x27;a pas de note pour cette matière
+        moyennesParMatiere.push({
+          idMatiere: matiere.idMatiere,
+          nomMatiere: matiere.nomMatiere,
+          moyenne: &quot;pas de note&quot;,
+          nomProfesseur: prof.nomProfesseur,
+          prenomProfesseur: prof.prenomProfesseur,
+        });
+      }
+    }
+
+    let moyenneGenerale;
+
+    if (moyennesParMatiere.length &gt; 0) {
+      if (sommeCoefTotale !&#x3D;&#x3D; 0) {
+        moyenneGenerale &#x3D; sommePondereeTotale / sommeCoefTotale;
+      } else {
+        if (pasDeNote) {
+          moyenneGenerale &#x3D; &quot;pas de note&quot;;
+        } else {
+          moyenneGenerale &#x3D; 0;
+        }
+      }
+    } else {
+      // L&#x27;élève n&#x27;a pas de notes du tout
+      moyenneGenerale &#x3D; &quot;pas de note&quot;;
+    }
+
+    return {
+      moyennesParMatiere,
+      moyenneGenerale,
+    };
+  }
+
+  async getMoyennesByProfesseur(professeurId: string): Promise&lt;any[]&gt; {
+    // Récupérer les classes enseignées par le professeur
+    const classesEnseignees &#x3D; await this.classeRepository
+      .createQueryBuilder(&quot;classe&quot;)
+      .innerJoin(&quot;classe.professeurs&quot;, &quot;professeur&quot;)
+      .where(&quot;professeur.id &#x3D; :professeurId&quot;, { professeurId })
+      .getMany();
+
+    // Tableau pour stocker les moyennes par classe
+    const moyennesParClasse &#x3D; [];
+
+    // Pour chaque classe enseignée par le professeur
+    for (const classe of classesEnseignees) {
+      // Récupérer les élèves de la classe
+      const elevesClasse &#x3D; await this.classeRepository
+        .createQueryBuilder(&quot;classe&quot;)
+        .innerJoinAndSelect(&quot;classe.eleves&quot;, &quot;eleve&quot;)
+        .where(&quot;classe.id &#x3D; :classeId&quot;, { classeId: classe.id })
+        .getOne();
+
+      // Vérifier s&#x27;il y a des élèves dans la classe
+      if (!elevesClasse) {
+        moyennesParClasse.push({
+          idClasse: classe.id,
+          nomClasse: classe.nom,
+          moyenneClasse: &quot;classe vide&quot;, //0ab282a8-732d-11ee-b709-0242ac190002
+        });
+        continue; // Passer à la classe suivante si aucun élève
+      }
+
+      // Obtenir les IDs des élèves de la classe
+      const eleveIds &#x3D; elevesClasse.eleves.map((eleve) &#x3D;&gt; eleve.id);
+
+      // Récupérer les notes des élèves de la classe enseignée par le professeur
+      const notesEleves &#x3D; await this.noteRepository
+        .createQueryBuilder(&quot;note&quot;) // Crée un query builder pour l&#x27;entité &#x27;note&#x27;
+        .where(&quot;note.id_eleve IN (:...eleveIds)&quot;, { eleveIds }) // Filtre les notes en fonction des IDs d&#x27;élèves fournis
+        .andWhere(&quot;note.id_professeur &#x3D; :professeurId&quot;, { professeurId }) // Filtre les notes en fonction de l&#x27;ID du professeur
+        .getMany(); // Exécute la requête et récupère les résultats sous forme de tableau
+
+      let moyenneClasse; // Variable pour stocker la moyenne de la classe
+
+      // Vérifie s&#x27;il y a des notes pour les élèves de la classe
+      if (notesEleves.length &gt; 0) {
+        // Calculer la moyenne de la classe
+        const totalCoef &#x3D; notesEleves.reduce((sum, note) &#x3D;&gt; sum + note.coef, 0); // Calcule la somme des coefficients des notes
+        // eslint-disable-next-line prettier/prettier
+        const totalPonderee &#x3D; notesEleves.reduce(
+          (sum, note) &#x3D;&gt; sum + note.coef * note.note,
+          0,
+        ); // Calcule la somme pondérée des notes
+        moyenneClasse &#x3D; totalCoef !&#x3D;&#x3D; 0 ? totalPonderee / totalCoef : 0; // Calcule la moyenne pondérée si les coefficients sont non nuls, sinon renvoie 0
+      } else {
+        moyenneClasse &#x3D; &quot;pas de note&quot;; // Affecte &#x27;pas de note&#x27; si aucune note n&#x27;a été trouvée pour les élèves de la classe
+      }
+
+      // Stocker les informations de moyenne par classe dans le tableau
+      moyennesParClasse.push({
+        idClasse: classe.id,
+        nomClasse: classe.nom,
+        moyenneClasse,
+      });
+    }
+    // Récupérer l&#x27;id et le nom de la matière qu&#x27;enseigne le professeur
+    const matiere &#x3D; await this.professeurRepository
+      .createQueryBuilder(&quot;professeur&quot;)
+      .select([&quot;matiere.id as idMatiere&quot;, &quot;matiere.nom as nomMatiere&quot;])
+      .innerJoin(&quot;professeur.id_matiere&quot;, &quot;matiere&quot;)
+      .where(&quot;professeur.id &#x3D; :professeurId&quot;, { professeurId })
+      .getRawOne();
+
+    moyennesParClasse.push({
+      idMatiere: matiere.idMatiere,
+      nomMatiere: matiere.nomMatiere,
+    });
+
+    // Retourner les moyennes par classe
+    return moyennesParClasse;
+  }
+
+  // eslint-disable-next-line prettier/prettier
+  async calculerMoyenneClasseEleveByProfesseur(
+    classeId: number,
+    professeurId: string,
+  ): Promise&lt;any[]&gt; {
+    // Récupérer les élèves de la classe donnée
+    const eleves &#x3D; await this.eleveRepository.find({
+      where: {
+        id_classe: { id: classeId }, // Filtrer par l&#x27;ID de la classe
+      },
+    });
+    const numericIdProfesseur &#x3D; parseInt(professeurId, 10);
+    // Calculer les moyennes pour chaque élève
+    const moyennesEleves &#x3D; await Promise.all(
+      eleves.map(async (eleve) &#x3D;&gt; {
+        // Récupérer les notes de l&#x27;élève pour le professeur donné
+        const notes &#x3D; await this.noteRepository.find({
+          where: {
+            id_eleve: { id: eleve.id }, // Filtrer par l&#x27;ID de l&#x27;élève
+            id_professeur: { id: numericIdProfesseur }, // Filtrer par l&#x27;ID du professeur
+          },
+        });
+
+        let moyenne; // Variable pour stocker la moyenne de l&#x27;élève
+
+        if (notes.length &gt; 0) {
+          // Calculer la moyenne pour l&#x27;élève
+          const totalCoef &#x3D; notes.reduce((sum, note) &#x3D;&gt; sum + note.coef, 0); // Calcule la somme des coefficients des notes
+          // eslint-disable-next-line prettier/prettier
+          const totalPonderee &#x3D; notes.reduce(
+            (sum, note) &#x3D;&gt; sum + note.coef * note.note,
+            0,
+          ); // Calcule la somme pondérée des notes
+          moyenne &#x3D; totalCoef !&#x3D;&#x3D; 0 ? totalPonderee / totalCoef : 0; // Calcule la moyenne pondérée si les coefficients sont non nuls, sinon renvoie 0
+        } else {
+          moyenne &#x3D; &quot;pas de note&quot;; // Affecte &#x27;pas de note&#x27; si aucune note n&#x27;a été trouvée pour l&#x27;élève
+        }
+
+        return {
+          idEleve: eleve.id, // ID de l&#x27;élève
+          nomEleve: eleve.nom, // Nom de l&#x27;élève
+          prenomEleve: eleve.prenom, // Prénom de l&#x27;élève
+          moyenne, // Moyenne de l&#x27;élève
+        };
+      }),
+    );
+
+    return moyennesEleves; // Retourner les moyennes pour chaque élève
+  }
+  // eslint-disable-next-line prettier/prettier
+  async create(createNoteDto: CreateNoteDto, professeurId: string): Promise&lt;void&gt; {
+    // Extraction des propriétés du DTO
+    const { coef, nom, eleves } &#x3D; createNoteDto;
+
+    // Vérifier s&#x27;il y a des notes nulles ou non définies
+    // eslint-disable-next-line prettier/prettier
+    const hasNullNote &#x3D; eleves.some(
+      (eleveData) &#x3D;&gt; eleveData.note &#x3D;&#x3D;&#x3D; null || eleveData.note &#x3D;&#x3D;&#x3D; undefined,
+    );
+    if (hasNullNote) {
+      // Lancer une exception BadRequest si des notes sont nulles ou non définies
+      throw new BadRequestException({
+        message: &quot;Toutes les notes doivent être renseignées.&quot;,
+      });
+    }
+
+    // Vérifier si une note est négative
+    const hasNegativeNote &#x3D; eleves.some((eleveData) &#x3D;&gt; eleveData.note &lt; 0);
+    if (hasNegativeNote) {
+      // Lancer une exception BadRequest si une note est négative
+      throw new BadRequestException({
+        message: &quot;La note ne peut pas être négative.&quot;,
+      });
+    }
+
+    // Vérifier si une note est supérieur à 20
+    const hasInvalidNote &#x3D; eleves.some((eleveData) &#x3D;&gt; eleveData.note &gt; 20);
+    if (hasInvalidNote) {
+      // Lancer une exception BadRequest si une note est supérieure à 20
+      throw new BadRequestException({
+        message: &quot;La note ne peut pas être supérieure à 20.&quot;,
+      });
+    }
+
+    // Création des notes en parallèle
+    const notes &#x3D; await Promise.all(
+      eleves.map(async (eleveData) &#x3D;&gt; {
+        // Recherche de l&#x27;élève correspondant à l&#x27;ID
+        const eleve &#x3D; await this.eleveService.findOne(eleveData.idEleve);
+
+        if (!eleve) {
+          // Lancer une exception NotFound si l&#x27;élève n&#x27;est pas trouvé
+          throw new NotFoundException(
+            &#x60;Élève non trouvé avec l&#x27;ID ${eleveData.idEleve}&#x60;,
+          );
+        }
+
+        // Recherche du professeur correspondant à l&#x27;ID
+        const professeur &#x3D; await this.professeurService.findOne(professeurId);
+
+        if (!professeur) {
+          // Lancer une exception NotFound si le professeur n&#x27;est pas trouvé
+          throw new NotFoundException(&quot;Professeur non trouvé&quot;);
+        }
+
+        // Création d&#x27;une nouvelle note
+        const note &#x3D; new Note();
+        note.nom &#x3D; nom;
+        note.coef &#x3D; coef;
+        note.note &#x3D; eleveData.note;
+        note.id_professeur &#x3D; professeur;
+        note.id_eleve &#x3D; eleve;
+        return note;
+      }),
+    );
+
+    // Sauvegarde des notes dans la base de données
+    await this.noteRepository.save(notes);
+  }
+
+  update(id: number, updateNoteDto: UpdateNoteDto) {
+    return &#x60;This action updates a #${id} note&#x60;;
+  }
+
+  remove(id: number) {
+    return &#x60;This action removes a #${id} note&#x60;;
+  }
+}
+</code></pre>
+    </div>
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'injectable';
+            var COMPODOC_CURRENT_PAGE_URL = 'NoteService.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+       <script src="../js/libs/zepto.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

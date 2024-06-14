@@ -1,0 +1,18 @@
+<ion-content>
+  <form [formGroup]="authForm" (ngSubmit)="login()">
+    <ion-item>
+      <ion-label position="floating">Email</ion-label>
+      <ion-input #emailInput type="email" matInput formControlName="email" placeholder="prenom.nom@grademaster.fr"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="floating">Mot de passe</ion-label>
+      <ion-input formControlName="motDePasse" matInput type="password"></ion-input>
+    </ion-item>
+
+    <ion-button type="submit" expand="full">Connexion</ion-button>
+  </form>
+</ion-content>
+
+
+

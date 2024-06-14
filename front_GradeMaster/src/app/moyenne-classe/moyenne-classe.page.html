@@ -1,0 +1,69 @@
+<ion-content [fullscreen]="true">
+  <ion-button class="button" (click)="deconnexion()">
+    <ion-icon name="log-out-outline"></ion-icon>
+  </ion-button>
+  <h1>{{classe.nomclasse}}</h1>
+  <ng-container *ngIf="moyenneEleve?.length === 0 ; else nokState">
+    <p >Il n'y a pas d'élève dans cette classe</p>
+  </ng-container>
+<ng-template #nokState>
+  <ion-button  class="button" (click)="OuvrirModalAjoutNote()">Ajouter une note</ion-button>
+
+  <table class="fl-table">
+    <thead>
+      <tr class="colonne">
+        <th>Nom de l'élève</th>
+        <th>Moyenne</th>
+      </tr>
+    </thead>
+    <tr *ngFor="let moyenne of moyenneEleve" (click)="VoirNoteEleve(moyenne)">
+      <td >
+        {{moyenne.nomEleve}} {{moyenne.prenomEleve}}
+      </td>
+      <td>{{moyenne.moyenne}}</td>
+    </tr>
+  </table>
+</ng-template>
+<ion-modal [isOpen]="isModalOpen" [backdropDismiss]="false">
+  <ng-template>
+    <h1>{{classe.nomclasse}}</h1>
+    <ion-button class="fermer" (click)="OuvrirModalAjoutNote()">
+      <ion-icon name="close-outline"></ion-icon>
+    </ion-button>
+    <form [formGroup]="noteForm">
+      <ion-grid>
+        <ion-row>
+          <ion-col size="auto">
+            <ion-label position="stacked">Nom</ion-label>
+            <!-- <ion-input formControlName="nom" type="text"></ion-input> -->
+            <ion-input formControlName="nomDevoir" type="text"></ion-input>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col size="auto">
+            <ion-label position="stacked">Coefficient</ion-label>
+            <!-- <ion-input formControlName="coef" type="number"></ion-input> -->
+            <ion-input formControlName="coefficient" type="number" inputmode="numeric" pattern="[0-9]*" min="0" max="20"></ion-input>
+            <div *ngIf="noteForm.get('coefficient')?.hasError('pattern') && noteForm.get('coefficient')?.touched">
+              Coefficient doit être un nombre.
+            </div>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </form>
+
+    <ion-item *ngFor="let item of items" [ngClass]="{'eleve-sans-note': elevesSansNote.includes(item.id), 'note-en-dessous-de-20': item.note < 20 && this.isNumeric(item.note)}">
+      <ion-label [class.disabled]="item.isNoteDisabled">{{ item.nomEleve }} {{ item.prenomEleve }}</ion-label>
+      <ion-input [(ngModel)]="item.note" *ngIf="!item.isNoteDisabled" type="number" inputmode="numeric" pattern="[0-9]*" placeholder="Saisissez une note" min="0" max="20"></ion-input>
+      <ion-button *ngIf="item.isNoteDisabled" (click)="toggleNoteDisable(item)" color="primary" expand="full">Activer Note</ion-button>
+      <ion-button *ngIf="!item.isNoteDisabled" (click)="toggleNoteDisable(item)" color="light" expand="full">Désactiver Note</ion-button>
+    </ion-item> 
+
+      <ion-button (click)="submitForm()" type="submit" expand="full" color="primary">Ajouter Note</ion-button>
+    
+
+  
+</ng-template>
+
+</ion-modal>
+</ion-content>

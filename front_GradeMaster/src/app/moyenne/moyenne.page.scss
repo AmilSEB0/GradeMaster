@@ -1,0 +1,60 @@
+.fl-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    font-size: 18px;
+  }
+  
+  .fl-table th, .fl-table td {
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+  }
+  
+  .fl-table th {
+    background-color: #f2f2f2;
+    font-weight: bold;
+  }
+  
+  p {
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+  
+  .colonne th {
+    font-weight: bold;
+  }
+  
+  ion-title {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+  
+  ion-content {
+    padding: 20px;
+    background-color: #f9f9f9;
+  }
+
+  h1 {
+    font-size: 200%; 
+    font-weight: bold;
+    color: #333; 
+    margin-bottom: 10px; 
+    text-align: center;
+    text-decoration: underline overline #000000;
+  }
+  
+  .fl-table td:first-child {
+    font-weight: bold;
+    font-size: 120%;
+  }
+  
+  .fl-table td:last-child {
+    font-weight: bold;
+    font-size: 120%;
+  }
+  .button{
+    float:right;
+  }

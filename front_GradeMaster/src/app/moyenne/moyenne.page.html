@@ -1,0 +1,91 @@
+<!-- <ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>moyenne</ion-title>
+  </ion-toolbar>
+</ion-header> -->
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">Moyenne</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  <ion-button class="button" (click)="deconnexion()">
+    <ion-icon name="log-out-outline"></ion-icon>
+  </ion-button>
+  <h1 *ngIf="decodedToken.role === 3">Moyenne de {{decodedToken.prenom}} {{decodedToken.nom}}</h1>
+  <h1 *ngIf="decodedToken.role === 1">Les classes de {{decodedToken.prenom}} {{decodedToken.nom}} qui enseigne {{NomMatiere}}</h1>
+  <h1 *ngIf="decodedToken.role === 2">Les moyennes des enfants de {{decodedToken.prenom}} {{decodedToken.nom}}</h1>
+
+  <div *ngIf="decodedToken.role === 2">
+  <ion-select label="Choisir un enfant" label-placement="floating" [(ngModel)]="selectedOption" (ionChange)="VoirMoyenneDeSonEnfant()">
+    <ion-select-option *ngFor="let enfant of enfants" [value]="enfant">
+      {{ enfant.nom }} {{ enfant.prenom }}
+    </ion-select-option>
+  </ion-select>
+
+<div *ngIf="voirMoyenne">
+<table class="fl-table">
+  <thead>
+    <tr class="colonne">
+      <th>Nom de la matière</th>
+      <th>Moyenne</th>
+    </tr>
+  </thead>
+  <tr *ngFor="let moyenne of moyennes?.moyennesParMatiere" (click)="VoirMoyenneEnfant(moyenne.idMatiere)">
+    <td >
+      {{moyenne.nomMatiere}}
+      <br />
+      {{moyenne.prenomProfesseur}} {{moyenne.nomProfesseur}}       
+    </td>
+    <td>{{moyenne.moyenne}}</td>
+  </tr>
+  <tr>
+    <td>Général</td>
+    <td>{{moyennes?.moyenneGenerale}}</td>
+  </tr>
+</table>
+  </div>
+</div>
+
+  <div *ngIf="decodedToken.role === 3">
+  <table class="fl-table">
+    <thead>
+      <tr class="colonne">
+        <th>Nom de la matière</th>
+        <th>Moyenne</th>
+      </tr>
+    </thead>
+    <tr *ngFor="let moyenne of moyennes?.moyennesParMatiere" (click)="VoirNote(moyenne.idMatiere)">
+      <td >
+        {{moyenne.nomMatiere}}
+        <br />
+        {{moyenne.prenomProfesseur}} {{moyenne.nomProfesseur}}       
+      </td>
+      <td>{{moyenne.moyenne}}</td>
+    </tr>
+    <tr>
+      <td>Général</td>
+      <td>{{moyennes?.moyenneGenerale}}</td>
+    </tr>
+  </table>
+</div>
+
+<div *ngIf="decodedToken.role === 1">
+  <table class="fl-table">
+    <thead>
+      <tr class="colonne">
+        <th>Nom de la classe</th>
+        <th>Moyenne</th>
+      </tr>
+    </thead>
+    <tr *ngFor="let moyenne of moyennes" (click)="VoirMoyenneEleveClasse(moyenne.idClasse, moyenne.nomClasse)">
+      <td >
+        {{moyenne.nomClasse}}
+      </td>
+      <td>{{moyenne.moyenneClasse}}</td>
+    </tr>
+  </table>
+</div>
+</ion-content>
+

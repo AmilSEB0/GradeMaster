@@ -1,0 +1,133 @@
+INSERT INTO matiere (nom) VALUES
+('Mathématiques'),
+('Français'),
+('Histoire et Géographie'),
+('Physique et Chimie'),
+('SVT'); 
+
+INSERT INTO professeur (id, nom, prenom, email, motDePasse, role, idMatiere)
+VALUES
+(1, 'Zozote', 'Léon', 'leon.zozote@grademaster.fr', 'motdepasse1', 1, 1),
+(2, 'Frisouille', 'Gédéon', 'gedeon.frisouille@grademaster.fr', 'motdepasse2', 1, 2),
+(3, 'Coin-Coin', 'Émilie', 'emilie.coincoin@grademaster.fr', 'motdepasse3', 1, 3),
+(4, 'Tartine', 'Rufus', 'rufus.tartine@grademaster.fr', 'motdepasse4', 1, 4),
+(5, 'Choucroute', 'Clémentine', 'clementine.choucroute@grademaster.fr', 'motdepasse5', 1, 5),
+(6, 'Faribole', 'Octave', 'octave.faribole@grademaster.fr', 'motdepasse6', 1, 2),
+(7, 'Farfelu', 'Albert', 'albert.farfelu@grademaster.fr', 'motdepasse7', 1, 3),
+(8, 'Zim-Zam', 'Hortense', 'hortense.zimzam@grademaster.fr', 'motdepasse8', 1, 1),
+(9, 'Glousse', 'Jocelyne', 'jocelyne.glousse@grademaster.fr', 'motdepasse9', 1, 4),
+(10, 'Gribouille', 'Thibault', 'thibault.gribouille@grademaster.fr', 'motdepasse10', 1, 1);
+
+INSERT INTO classe (nom) VALUES
+('Classe A'),
+('Classe B'),
+('Classe C'),
+('Classe D'),
+('Classe E');
+
+INSERT INTO parent (nom, prenom, email, motDePasse, role)
+VALUES
+('Bobinette', 'Lucas', 'lucas.bobinette@grademaster.fr', 'password31', 2),
+('Groquelin', 'Éva', 'eva.groquelin@grademaster.fr', 'password32', 2),
+('Ziboulette', 'Antoine', 'antoine.ziboulette@grademaster.fr', 'password33', 2),
+('Tintinabule', 'Inès', 'ines.tintinabule@grademaster.fr', 'password34', 2),
+('Crapulette', 'Victor', 'victor.crapulette@grademaster.fr', 'password35', 2),
+('Frisouille', 'Jade', 'jade.frisouille@grademaster.fr', 'password36', 2),
+('Grominou', 'Raphaël', 'raphael.grominou@grademaster.fr', 'password37', 2),
+('Papouille', 'Chloé', 'chloe.papouille@grademaster.fr', 'password38', 2),
+('Zébulon', 'Gabriel', 'gabriel.zebulon@grademaster.fr', 'password39', 2),
+('Flonflon', 'Sarah', 'sarah.flonflon@grademaster.fr', 'password40', 2),
+('Mimine', 'Louis', 'louis.mimine@grademaster.fr', 'password41', 2),
+('Bidulette', 'Alice', 'alice.bidulette@grademaster.fr', 'password42', 2),
+('Poupoune', 'Ethan', 'ethan.poupoune@grademaster.fr', 'password43', 2),
+('Grignote', 'Léna', 'lena.grignote@grademaster.fr', 'password44', 2),
+('Roudoudou', 'Nicolas', 'nicolas.roudoudou@grademaster.fr', 'password45', 2);
+
+INSERT INTO eleve (prenom, nom, email, motDePasse, role, idClasse, idParent)
+VALUES
+('Léa', 'Bobinette', 'lea.bobinette@grademaster.fr', 'password11', 3, 1, 1),
+('Hugo', 'Groquelin', 'hugo.groquelin@grademaster.fr', 'password12', 3, 2, 2),
+('Camille', 'Groquelin', 'camille.groquelin@grademaster.fr', 'password13', 3, 3, 2),
+('Maxime', 'Ziboulette', 'maxime.ziboulette@grademaster.fr', 'password14', 3, 4, 3),
+('Zoé', 'Tintinabule', 'zoe.tintinabule@grademaster.fr', 'password15', 3, 5, 4),
+('Jules', 'Tintinabule', 'jules.tintinabule@grademaster.fr', 'password16', 3, 1, 4),
+('Clara', 'Crapulette', 'clara.crapulette@grademaster.fr', 'password17', 3, 2, 5),
+('Tom', 'Crapulette', 'tom.crapulette@grademaster.fr', 'password18', 3, 3, 5),
+('Manon', 'Frisouille', 'manon.frisouille@grademaster.fr', 'password19', 3, 4, 6),
+('Nathan', 'Frisouille', 'nathan.frisouille@grademaster.fr', 'password20', 3, 5, 6),
+('Lila', 'Grominou', 'lila.grominou@grademaster.fr', 'password21', 3, 1, 7),
+('Théo', 'Papouille', 'theo.papouille@grademaster.fr', 'password22', 3, 2, 8),
+('Emma', 'Zébulon', 'emma.zebulon@grademaster.fr', 'password23', 3, 3, 9),
+('Enzo', 'Flonflon', 'enzo.flonflon@grademaster.fr', 'password24', 3, 4, 10),
+('Sophie', 'Flonflon', 'sophie.flonflon@grademaster.fr', 'password25', 3, 5, 10),
+('Lucas', 'Mimine', 'lucas.mimine@grademaster.fr', 'password26', 3, 1, 11),
+('Louise', 'Bidulette', 'louise.bidulette@grademaster.fr', 'password27', 3, 2, 12),
+('Antonin', 'Poupoune', 'antonin.poupoune@grademaster.fr', 'password28', 3, 3, 13),
+('Margaux', 'Grignote', 'margaux.grignote@grademaster.fr', 'password29', 3, 4, 14),
+('Eliott', 'Roudoudou', 'eliott.roudoudou@grademaster.fr', 'password30', 3, 5, 15);
+
+INSERT INTO professeur_classes_classe (professeurId, classeId) 
+VALUES
+(1, 1),
+(1, 2),
+(2, 1),
+(2, 3),
+(3, 2),
+(3, 5),
+(4, 3),
+(4, 5),
+(5, 1),
+(5, 2),
+(5, 4),
+(5, 5),
+(6, 2),
+(6, 4),
+(7, 3),
+(7, 4),
+(8, 3),
+(9, 1),
+(9, 4),
+(10, 5);
+
+INSERT INTO note (coef, note, nom, idProfesseur, idEleve)
+VALUES
+(2, 15, 'devoir surveillés',1, 1),
+(1, 14, 'devoir maison', 2, 1),
+(3, 16, 'examen blanc bac', 3, 2),
+(2, 12, 'devoir surveillés', 4, 3),
+(1, 18, 'devoir maison', 5, 5),
+(2, 13, 'devoir surveillés', 6, 2),
+(1, 17, 'devoir maison', 7, 3),
+(3, 11, 'examen blanc bac', 8, 3),
+(2, 14, 'devoir surveillés', 9, 4),
+(1, 19, 'devoir maison', 10, 5),
+(2, 12, 'devoir surveillés', 1, 1),
+(1, 15, 'devoir maison', 2, 6),
+(3, 18, 'examen blanc bac', 3, 2),
+(2, 10, 'devoir surveillés', 4, 3),
+(1, 16, 'devoir maison', 5, 5),
+(2, 14, 'devoir surveillés', 6, 2),
+(1, 17, 'devoir maison', 7, 3),
+(3, 11, 'examen blanc bac', 8, 3),
+(2, 15, 'devoir surveillés', 9, 4),
+(1, 18, 'devoir maison', 2, 6),
+(2, 12, 'devoir surveillés', 1, 1),
+(1, 14, 'devoir maison', 1, 2),
+(3, 16, 'examen blanc bac', 1, 1),
+(2, 10, 'devoir surveillés', 1, 1),
+(1, 17, 'devoir maison', 1, 1),
+(2, 15, 'devoir surveillés', 2, 1),
+(1, 13, 'devoir maison', 3, 2),
+(3, 18, 'examen blanc bac', 4, 3),
+(2, 14, 'devoir surveillés', 5, 5),
+(1, 19, 'devoir maison', 6, 4),
+(2, 12, 'devoir surveillés', 9, 1),
+(1, 15, 'devoir maison', 8, 3),
+(3, 18, 'examen blanc bac', 9, 1),
+(2, 11, 'devoir surveillés', 10, 5),
+(1, 16, 'devoir maison', 1, 2),
+(2, 14, 'devoir surveillés', 2, 1),
+(1, 17, 'devoir maison', 3, 2),
+(3, 11, 'examen blanc bac', 4, 3),
+(2, 15, 'devoir surveillés', 5, 5),
+(1, 18, 'devoir maison', 6, 4);

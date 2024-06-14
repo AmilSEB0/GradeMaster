@@ -1,0 +1,46 @@
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">note</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  <ion-button class="button" (click)="deconnexion()">
+    <ion-icon name="log-out-outline"></ion-icon>
+  </ion-button>
+  
+  <h1>Les notes de {{prenom}} {{nom}}</h1>
+    <h1>{{notes?.NomMatiere}} noté par {{notes?.prenomProfesseur}} {{notes?.nomProfesseur}}</h1>
+
+    <ng-container *ngIf="notes?.notes.length === 0 ; else nokState">
+    <p >Vous n'avez pas de note</p>
+  </ng-container>
+<ng-template #nokState>
+  <table class="fl-table">
+    <thead>
+      <tr class="colonne">
+        <th>Nom du devoirs</th>
+        <th>Coefficient</th>
+        <th>Note</th>
+      </tr>
+    </thead>
+    <tr *ngFor="let note of notes?.notes">
+      <td>{{note.nom}}</td>
+      <td>{{note.coef}}</td>
+      <td>{{note.note}}</td>
+    </tr>
+  </table>
+    <br />
+    <table class="fl-table">
+      <thead>
+        <tr class="colonne">
+          <th></th>
+          <th></th>
+        </tr>
+      </thead>
+      <tr>
+        <td>Moyenne</td>
+        <td>{{notes?.moyenne}}</td>
+      </tr>
+    </table>
+  </ng-template>
+</ion-content>

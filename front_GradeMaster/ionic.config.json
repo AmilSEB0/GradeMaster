@@ -1,0 +1,7 @@
+{
+  "name": "front_GradeMaster",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
